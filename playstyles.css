@@ -1,0 +1,202 @@
+/*
+ * Created by Lucy Gao, 2024
+ *
+ * This stylesheet is used by play.html (the page showing all Survivors games).
+ */
+
+body {
+  background-image: url("images/FIDgamedash.png");
+  height: 100vh;
+}
+
+body, #flight-initiation-distance, #margin-of-safety, #the-predation-game {
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+body, #top-header h1 {
+  font-style: normal;
+}
+
+header {
+ flex-direction: column;
+}
+
+#top-header {
+  justify-content: space-between;
+  border-bottom: 10px solid;
+  border-image: linear-gradient(to right, #8AB1D0 0%, #23418A 50%) 100% 1;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+nav {
+  justify-content: space-around;
+}
+
+main {
+  height: 60vh;
+  width: auto;
+  margin-top: 10px;
+}
+
+main, nav a {
+  padding: 20px;
+}
+
+nav a, #back {
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a {
+  flex-grow: 1;
+  border-radius: 0px 0px 30px 30px;
+  font-size: larger;
+}
+
+nav a, .game {
+  margin: 0px 20px;
+}
+
+nav a, body, #play-link, .game button {
+  color: #FFFFFF;
+}
+
+#play-link:hover, h3, p, nav, nav a {
+  font-weight: 400;
+}
+
+#play-link {
+  font-size: 40px;
+  background-color: #89B0CF;
+  letter-spacing: 15px;
+  padding: 15px;
+}
+
+#play-link, .game h1 {
+  font-weight: 200;
+}
+
+nav a:hover {
+  background-color: rgba(35, 65, 138, 0.5);
+}
+
+button:hover, a:hover, #back:hover {
+  font-weight: bold;
+}
+
+h3, .game button {
+  letter-spacing: 5px;
+}
+
+p, nav {
+  font-family: 'Nunito', sans-serif;
+}
+
+header, #top-header, nav, main, #game-scores, #games {
+  display: flex;
+}
+
+#top-header, #main, #game-scores, #games {
+ flex-direction: row;
+}
+
+#back, .game {
+  border-top: 2px solid #89B0CF;
+  border-bottom: 2px solid #89B0CF;
+  border-radius: 30px;
+  margin: 10px;
+}
+
+#top-header h1 {
+  letter-spacing: 20px;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.game {
+  flex: 1;
+  position: relative;
+}
+
+.game, .game button {
+  padding: 30px;
+}
+
+.game h1 {
+  font-size: 2.7vw;
+  letter-spacing: 7px;
+  margin: 0px;
+}
+
+.game h3 {
+  font-style: italic;
+  letter-spacing: 3px;
+}
+
+.game button {
+  bottom: 40px;
+  left: 20px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(168, 216, 255, 0.795);
+}
+
+.game button, #back {
+  position: absolute;
+  font-size: x-large;
+}
+
+.game button, #back, body {
+  font-family: 'Kodchasan', sans-serif;
+}
+
+#games {
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#flight-initiation-distance {
+  background-image: url('images/fidbackground.png');
+}
+
+#margin-of-safety {
+  background-image: url('images/mosbackground.png');
+}
+
+#the-predation-game {
+  background-image: url('images/predbackground.png');
+}
+
+#back {
+  width: fit-content;
+  padding: 15px 30px;
+  color: #E2F2FF;
+  background-color: #2A4587;
+  margin-right: auto;
+  letter-spacing: 10px;
+  font-weight: 500;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A4587;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #88AFCE;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}

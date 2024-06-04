@@ -1,2 +1,2 @@
 # survivors-dashboards
-Dashboards for Survivors Platform
+Dashboards for the Survivors Platform

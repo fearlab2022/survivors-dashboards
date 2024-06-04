@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+  Created by Lucy Gao, 2024
+
+  This is a page that allows the user to play the Survivors games.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="playstyles.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="helpers.js"></script>
+  <script defer src="play.js"></script>
+
+  <title>Survivors Games</title>
+</head>
+<body>
+  <header>
+    <div id="top-header">
+      <div id="survivor-icon">
+        <!-- <img src="idek"> -->
+        <h3>SURVIVOR</h3>
+      </div>
+      <h1>DASHBOARD</h1>
+      <h3 class="player-id">PLAYER #0817</h3>
+    </div>
+    <div id="menu-bar">
+      <nav>
+        <!-- NOTE: maybe change what is in the menu bar-->
+        <a href="index.html" id="home-page-link">HOME</a>
+        <a href="#" id="inventory-page-link">INVENTORY</a>
+        <a href="#" id="store-page-link">STORE</a>
+        <a href="#" id="inbox-page-link">GAMES</a>
+        <a href="#" id="play-link">PLAY</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div id="games">
+      <div id="flight-initiation-distance" class="game">
+        <h1>FLIGHT INITIATION DISTANCE</h1>
+        <h3>Score: 372</h3>
+        <h3>Best: 785</h3>
+        <button class="play-button">PLAY</button>
+      </div>
+      <div id="margin-of-safety" class="game">
+        <h1>MARGIN OF SAFETY</h1>
+        <h3>Score: 432</h3>
+        <h3>Best: 489</h3>
+        <button class="play-button">PLAY</button>
+      </div>
+      <div id="the-predation-game" class="game">
+        <h1>THE PREDATION GAME</h1>
+        <h3>Score: 293</h3>
+        <h3>Best: 892</h3>
+        <button class="play-button">PLAY</button>
+      </div>
+    </div>
+    <a href="#" id="back">&lt; BACK</a>
+  </main>
+  <footer></footer>
+</body>
+</html>

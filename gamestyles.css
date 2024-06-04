@@ -1,0 +1,298 @@
+/*
+ * Created by Lucy Gao, 2024
+ *
+ * This stylesheet is used by game.html (the game-specific dashboard).
+ */
+
+body {
+  background-image: url("images/MOSgamedash.png");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+body, nav a, #play-link, #dropdown-text, .pagination h2 {
+  color: #FFFFFF;
+}
+
+body, .pagination a, #top-header h1, h2, .score-box h1 {
+  font-weight: 600;
+}
+
+body, #back, #dropdown-text {
+  font-family: 'Kodchasan', sans-serif;
+}
+
+body, #top-header h1 {
+  font-style: normal;
+}
+
+nav, nav a, #play-link:hover, h3 {
+  font-weight: 400;
+}
+
+nav {
+  font-family: 'Nunito', sans-serif;
+}
+
+header, #top-header, #left-column, #right-column, nav, main, #game-scores,
+#player-avatar, #dropdown-btn, #dropdown-main, #results-dropdown, .pagination {
+  display: flex;
+}
+
+#top-header, #game-scores, #dropdown-btn, main {
+ flex-direction: row;
+}
+
+header, #left-column, #right-column, #results-dropdown, #player-avatar {
+ flex-direction: column;
+}
+
+#top-header {
+  border-bottom: 10px solid;
+  border-image: linear-gradient(to right, #8AB1D0 0%, #23418A 50%) 100% 1;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#top-header, #left-column {
+  justify-content: space-between;
+}
+
+nav, #right-column, main {
+  justify-content: space-around;
+}
+
+.score-box, #back, #results-dropdown {
+  border-top: 2px solid #89B0CF;
+  border-bottom: 2px solid #89B0CF;
+}
+
+.score-box, #back, #results-dropdown, #username {
+  border-radius: 30px;
+}
+
+.score-box, #back, #results-dropdown, #right-column, #left-column {
+  margin: 10px;
+}
+
+.score-box {
+  padding: 0px 20px;
+}
+
+#recent-trial-score {
+  margin-right: 15px;
+}
+
+#top-score {
+  margin-left: 15px;
+}
+
+#back {
+  width: fit-content;
+  padding: 15px 30px;
+  color: #E2F2FF;
+  justify-content: flex-end;
+  background-color: #2A4587;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+#results-dropdown {
+  border: 2px solid #89B0CF;
+}
+
+#player-avatar {
+  background: radial-gradient(ellipse, #386F9F 0%, transparent 70%);
+  margin-right: 10%;
+  max-width: 70%;
+  height: 100%;
+}
+
+img {
+  max-height: 70vh;
+  width: auto;
+}
+
+#right-column {
+  width: 60%;
+  padding-right: 7%;
+}
+
+main, nav a {
+  padding: 20px;
+}
+
+#left-column {
+  width: 40%;
+}
+
+nav a {
+  margin: 0px 20px;
+  border-radius: 0px 0px 30px 30px;
+}
+
+nav a, #dropdown-main, #dropdown-text, #dropdown-content, #username,
+.score-box h1, .pagination h2, #back {
+  text-align: center;
+}
+
+nav a, #dropdown-main, .score-box, #results-dropdown {
+  flex-grow: 1;
+}
+
+#play-link {
+  font-size: 40px;
+  letter-spacing: 15px;
+  font-weight: 200;
+  padding: 15px;
+}
+
+#play-link, #dropdown-btn, .pagination h2 {
+  background-color: #89B0CF;
+}
+
+nav a:hover {
+  background-color: rgba(35, 65, 138, 0.5);
+}
+
+button:hover, a:hover, #back:hover {
+  font-weight: bold;
+}
+
+.pagination a {
+  padding: 0px 30px;
+}
+
+.pagination a, #back {
+  font-size: x-large;
+}
+
+.pagination a, #back, nav a {
+  text-decoration: none;
+}
+
+#top-header h1 {
+  letter-spacing: 20px;
+  font-size: 45px;
+}
+
+h2, #dropdown-text, #back {
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+}
+
+#dropdown-btn {
+  margin: 0px;
+  border-radius: 30px 30px 0px 0px;
+  padding: 8px;
+}
+
+#dropdown-btn, #dropdown-text {
+  border: none;
+}
+
+#dropdown-btn, #dropdown-main, .pagination, #player-avatar, #left-column {
+  align-items: center;
+}
+
+#dropdown-btn, #dropdown-main, .pagination, #player-avatar {
+  justify-content: center;
+}
+
+#dropdown-main {
+  font-size: 60px;
+  height: 60vh;
+}
+
+#dropdown-header, #dropdown-text, #right-arrow:hover, #left-arrow:hover {
+  cursor: pointer;
+}
+
+#dropdown-text {
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+#dropdown-text, nav a {
+  font-size: larger;
+}
+
+#dropdown-content {
+  display: none;
+  min-width: 260px;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+}
+
+#dropdown-content, #username {
+  background-color: rgba(137, 176, 207, 0.73);
+}
+
+#dropdown-header, .arrow {
+  position: relative;
+}
+
+#dropdown-header:hover #dropdown-content {
+  display: block;
+}
+
+.arrow {
+  height: 0;
+  width: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #FFFFFF;
+  margin-right: 20px;
+}
+
+#username {
+  padding: 10px 40px;
+}
+
+.score-box h3 {
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
+.score-box h1 {
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  letter-spacing: 30px;
+}
+
+.pagination > * {
+  color: #B5DEFF;
+  display: inline-block;
+}
+
+.pagination h2 {
+  padding: 8px 30px;
+  border-radius: 50px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A4587;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #88AFCE;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}

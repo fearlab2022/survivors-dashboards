@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+  Created by Lucy Gao, 2024
+
+  This is the game-specific dashboard for games such as Flight Initiation Distance, Margin of Safety, and the
+  Predation Game.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gamestyles.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="helpers.js"></script>
+  <script defer src="game.js"></script>
+
+  <title>Survivors Game Dashboard</title>
+</head>
+<body>
+  <header>
+    <div id="top-header">
+      <div id="survivor-icon">
+        <!-- <img src="idek"> -->
+        <h3>SURVIVOR</h3>
+      </div>
+      <h1>DASHBOARD</h1>
+      <h3 class="player-id">PLAYER #0817</h3>
+    </div>
+    <div id="menu-bar">
+      <nav>
+        <!-- NOTE: maybe change what is in the menu bar-->
+        <a href="index.html" id="home-page-link">HOME</a>
+        <a href="#" id="inventory-page-link">INVENTORY</a>
+        <a href="#" id="store-page-link">STORE</a>
+        <a href="#" id="inbox-page-link">GAMES</a>
+        <a href="play.html" id="play-link">PLAY</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div id="left-column">
+      <div id="player-avatar">
+        <img src="images/avatar.png" alt="player avatar">
+        <h2 id="username" class="player-id">PLAYER #0817</h2>
+      </div>
+      <a href="#" id="back">&lt; BACK</a>
+    </div>
+    <div id="right-column">
+      <div id="recent-trial-details">
+        <h2 id="recent-trial-game">MARGIN OF SAFETY</h2>
+        <!-- NOTE: maybe I should put outcome in here somewhere -->
+        <div id="game-scores">
+          <div id="recent-trial-score" class="score-box">
+            <h3>SCORE</h3>
+            <h1>1680</h1>
+          </div>
+          <div id="top-score" class="score-box">
+            <h3>BEST</h3>
+            <h1>2158</h1>
+          </div>
+        </div>
+      </div>
+      <div id="results-dropdown">
+        <div id="dropdown-header">
+          <div id="dropdown-btn">
+            <button id="dropdown-text">RADAR GRAPH</button>
+            <i class="arrow"></i>
+          </div>
+          <div id="dropdown-content">
+            <!-- <p>RADAR GRAPH</p>
+            <p>SURVIVABILITY</p>
+            <p>PERFORMANCE OVER TIME</p>
+            <p>ESCAPE TIME</p>
+            <p>PREDATOR ATTACK TIME</p> -->
+          </div>
+        </div>
+        <div id="dropdown-main"></div>
+      </div>
+      <div class="pagination">
+        <a id="left-arrow">❮</a> <h2 id="session">SESSION #22</h2> <a id="right-arrow">❯</a>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+</body>
+</html>
