@@ -4,7 +4,7 @@
  * This stylesheet is used by game.html (the game-specific dashboard).
  */
 
-body {
+ body {
   background-image: url("images/MOSgamedash.png");
   background-size: cover;
   background-position-x: center;
@@ -145,7 +145,6 @@ nav a, #dropdown-main, .score-box, #results-dropdown {
 #play-link {
   font-size: 40px;
   letter-spacing: 15px;
-  font-weight: 200;
   padding: 15px;
 }
 
@@ -182,7 +181,7 @@ h2, #dropdown-text, #back {
   letter-spacing: 10px;
 }
 
-h3 {
+h3, #dropdown-content {
   letter-spacing: 5px;
 }
 
@@ -230,6 +229,11 @@ h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
+  font-style: italic;
+}
+
+#dropdown-content, #play-link {
+  font-weight: 200;
 }
 
 #dropdown-content, #username {
