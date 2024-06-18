@@ -4,9 +4,9 @@
  * This stylesheet is used by play.html (the page showing all Survivors games).
  */
 
-body {
+ body {
   background-image: url("images/FIDgamedash.png");
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 body, #flight-initiation-distance, #margin-of-safety, #the-predation-game {
@@ -20,12 +20,15 @@ body, #top-header h1 {
   font-style: normal;
 }
 
-header {
+header, main {
  flex-direction: column;
 }
 
-#top-header {
+#top-header, main {
   justify-content: space-between;
+}
+
+#top-header {
   border-bottom: 10px solid;
   border-image: linear-gradient(to right, #8AB1D0 0%, #23418A 50%) 100% 1;
   padding-left: 20px;
@@ -100,7 +103,7 @@ header, #top-header, nav, main, #game-scores, #games {
   display: flex;
 }
 
-#top-header, #main, #game-scores, #games {
+#top-header, #game-scores, #games {
  flex-direction: row;
 }
 
@@ -119,7 +122,6 @@ header, #top-header, nav, main, #game-scores, #games {
 
 .game {
   flex: 1;
-  position: relative;
 }
 
 .game, .game button {
@@ -127,7 +129,6 @@ header, #top-header, nav, main, #game-scores, #games {
 }
 
 .game h1 {
-  font-size: 2.7vw;
   letter-spacing: 7px;
   margin: 0px;
 }
@@ -145,8 +146,7 @@ header, #top-header, nav, main, #game-scores, #games {
   background-color: rgba(168, 216, 255, 0.795);
 }
 
-.game button, #back {
-  position: absolute;
+.game button {
   font-size: x-large;
 }
 
@@ -157,6 +157,7 @@ header, #top-header, nav, main, #game-scores, #games {
 #games {
   justify-content: space-evenly;
   width: 100%;
+  height: 80%;
 }
 
 #flight-initiation-distance {
@@ -177,10 +178,18 @@ header, #top-header, nav, main, #game-scores, #games {
   color: #E2F2FF;
   background-color: #2A4587;
   margin-right: auto;
+  margin-top: 20px;
   letter-spacing: 10px;
   font-weight: 500;
-  bottom: 10px;
-  left: 10px;
+}
+
+.game {
+  cursor: pointer;
+}
+
+.scrollable-x {
+  overflow-x: auto;
+  padding: 0px;
 }
 
 /* scrollbar */
@@ -199,4 +208,144 @@ header, #top-header, nav, main, #game-scores, #games {
 
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
   border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding: 20px;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+
+  #play-link {
+    font-size: 35px;
+    letter-spacing: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  #top-header {
+    padding: 0px;
+    justify-content: space-between;
+    width: auto;
+    text-align: center;
+  }
+
+  #player-id {
+    width: auto;
+    display: inline-block;
+  }
+
+  #back {
+    bottom: -10px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  #games {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding-top: 20px;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+
+  #play-link {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  #top-header h3 {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  #top-header {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 0px;
+  }
+
+  #games {
+    height: 85%;
+  }
+}
+
+
+@media (max-width: 620px) {
+  nav {
+    flex-direction: column;
+  }
+
+  h2, #expand {
+    letter-spacing: 5px;
+    font-size: 18px;
+  }
+
+  #recent-trial-score h1 {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  #left-column, #right-column {
+    flex-direction: column;
+  }
+
+  nav a {
+    font-size: medium;
+    padding: 10px;
+    border-radius: 0px;
+  }
+
+  #play-link {
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  #leaderboard-table, #notifications p, .scores, #expand {
+    font-size: 14px;
+  }
+
+  #recent-trial-score-split p {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  #player-avatar {
+    justify-content: center;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 55vw;
+  }
 }

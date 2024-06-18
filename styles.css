@@ -4,7 +4,7 @@
  * This stylesheet is used by index.html (the main game dashboard).
  */
 
-body {
+ body {
   background-image: linear-gradient(#000000, #002C81);
 }
 
@@ -97,10 +97,6 @@ header, #left-column, #right-column, #recent-trial-details, #leaderboard, #notif
 
 #leaderboard {
   max-height: 35vh;
-}
-
-#notifications {
-  max-height: 50vh;
 }
 
 #recent-trial, #games > *, #recent-trial-score, #expand, #leaderboard, #notifications, .notif {
@@ -360,4 +356,201 @@ table tbody tr td:first-child::before {
 
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
   border-radius: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  #left-column, #right-column {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  #left-column {
+    order: 1;
+  }
+
+  #right-column {
+    order: 2;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  #left-column, #right-column {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #notifications {
+    max-height: 50vh;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  #games {
+    height: auto;
+    width: 98%;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding: 20px;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+
+  #play-link {
+    font-size: 35px;
+    letter-spacing: 8px;
+  }
+
+  h1 {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  #top-header {
+    padding: 0px;
+    justify-content: space-between;
+    width: auto;
+    text-align: center;
+  }
+
+  #player-id {
+    width: auto;
+    display: inline-block;
+  }
+
+  #recent-trial {
+    margin: 0px;
+  }
+
+  #recent-trial-score h1 {
+    font-size: 60px;
+  }
+
+  #recent-trial-score {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 700px) {
+  #games {
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    align-items: center;
+  }
+
+  .game {
+    width: 80vw;
+  }
+
+  #games > *, #games div:first-child {
+    margin: 10px 0px;
+  }
+
+  #games {
+    margin: 0px;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding-top: 20px;
+  }
+
+  nav {
+    font-size: 12px;
+  }
+
+  #play-link {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  .game button {
+    width: 50px;
+    bottom: -20px;
+  }
+
+  #leaderboard, #notifications {
+    margin: 10px 0px;
+  }
+}
+
+
+@media (max-width: 620px) {
+  #top-header h3 {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  #top-header {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin: 0px;
+  }
+
+  h2, #expand {
+    letter-spacing: 5px;
+    font-size: 18px;
+  }
+
+  #recent-trial-score h1 {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  #left-column, #right-column {
+    flex-direction: column;
+  }
+
+  nav a {
+    font-size: medium;
+    padding: 10px;
+    border-radius: 0px;
+  }
+
+  #play-link {
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  #leaderboard-table, #notifications p, .scores, #expand {
+    font-size: 14px;
+  }
+
+  #recent-trial-score-split p {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  #player-avatar {
+    justify-content: center;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 55vw;
+  }
 }
