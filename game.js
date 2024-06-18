@@ -19,7 +19,8 @@
   }
 
   /**
-   * docstring
+   * Initialize the Firebase configuration to use the data in this Cloud Firestore database:
+   * https://console.firebase.google.com/u/0/project/survivors-7fb7c/firestore/databases/-default-/data/~2F
    */
   function initializeFirebase() {
     // Firebase configuration
@@ -76,6 +77,7 @@
           }
         },
         aspectRatio: 2,
+        maintainAspectRatio: false,
         scales: {
           r: {
             min: 0,
@@ -134,6 +136,7 @@
             display: false
           }
         },
+        maintainAspectRatio: false,
         scales: {
           y: {
             title: {
@@ -188,7 +191,8 @@
   }
 
   /**
-   * docstring
+   * Find the Player ID and update the dashboard with the player's data.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
    */
   function updateData(db) {
     let playerID = "PLAYER #0817";
@@ -215,7 +219,13 @@
   }
 
   /**
-   * docstring
+   * Load and display the game data. Includes the recent and best score for the game as well as all
+   * game features (radar chart, line chart).
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} gameShort - shortened name of the game (ex: FID)
+   * @param {String} playerID - the player's ID
+   * @param {firebase.firestore.QueryDocumentSnapshot} session - the Cloud Firestore document
+   * holding data for the desired session
    */
   async function showGameFeatures(db, gameShort, playerID, session) {
     // display Session1 as SESSION #1
@@ -258,10 +268,6 @@
           p.addEventListener("click", () => {
             arrayDropdown(arr, key);
           });
-          // change dropdown default if this is the first field we're accessing
-          if (id("dropdown-content").innerHTML == "") {
-            arrayDropdown(arr, key);
-          }
           id("dropdown-content").appendChild(p);
         }
         else {
@@ -276,12 +282,15 @@
       p.addEventListener("click", () => {
         createRadarChart(data, numberData);
       });
-      id("dropdown-content").appendChild(p);
+      createRadarChart(data, numberData);
+      id("dropdown-content").insertBefore(p, id("dropdown-content").firstChild);
     }
   }
 
   /**
-   * docstring
+   * Find all game sessions and populate the dashboard with game data.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} playerID - the player's ID
    */
   async function showGame(db, playerID) {
     let params = new URLSearchParams(window.location.search);

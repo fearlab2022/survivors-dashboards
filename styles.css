@@ -95,10 +95,6 @@ header, #left-column, #right-column, #recent-trial-details, #leaderboard, #notif
   margin-bottom: 10px;
 }
 
-#leaderboard {
-  max-height: 35vh;
-}
-
 #recent-trial, #games > *, #recent-trial-score, #expand, #leaderboard, #notifications, .notif {
   border-top: 2px solid #89B0CF;
   border-bottom: 2px solid #89B0CF;
@@ -360,9 +356,13 @@ table tbody tr td:first-child::before {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
-  #left-column, #right-column {
-    width: 100%;
-    flex-direction: column;
+  h2 {
+    font-size: 20px;
+    letter-spacing: 5px;
+  }
+
+  #leaderboard-table, #notifications p, .scores p {
+    font-size: 14px;
   }
 
   #left-column {
@@ -483,6 +483,10 @@ table tbody tr td:first-child::before {
 
   #leaderboard, #notifications {
     margin: 10px 0px;
+  }
+
+  main {
+    width: 90%;
   }
 }
 
