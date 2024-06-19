@@ -6,7 +6,10 @@
 
  body {
   background-image: url("images/FIDgamedash.png");
-  /* height: 100vh; */
+}
+
+html {
+  height: 100%;
 }
 
 body, #flight-initiation-distance, #margin-of-safety, #the-predation-game {
@@ -301,6 +304,15 @@ header, #top-header, nav, main, #game-scores, #games {
 @media (max-width: 620px) {
   nav {
     flex-direction: column;
+  }
+
+  html {
+    height: auto;
+  }
+
+  #top-header h1 {
+    font-size: 35px;
+    letter-spacing: 10px;
   }
 
   h2, #expand {
