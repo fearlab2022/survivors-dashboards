@@ -21,7 +21,8 @@
   }
 
   /**
-   * docstring
+   * Initialize the Firebase configuration to use the data in this Cloud Firestore database:
+   * https://console.firebase.google.com/u/0/project/survivors-7fb7c/firestore/databases/-default-/data/~2F
    */
   function initializeFirebase() {
     // Firebase configuration
@@ -42,7 +43,9 @@
   }
 
   /**
-   * docstring
+   * Find the Player ID and update all of the different parts of the dashboard with player data
+   * stored in the Cloud Firestore database.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
    */
   async function updateData(db) {
     let playerID = "PLAYER #0817";
@@ -70,7 +73,8 @@
   }
 
   /**
-   * docstring
+   * Change screen to show game page URL of the given game.
+   * @param {String} shorthand - shortened name of the game (ex: FID)
    */
   function showGamePage(shorthand) {
     let params = new URLSearchParams();
@@ -79,7 +83,10 @@
   }
 
   /**
-   * docstring
+   * Load the games section of the main dashboard. This shows all the games stored in the database
+   * along with the player's recent and best scores. Each game also links to a game-specific dashboard.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} playerID - the player's ID
    */
   async function loadGames(db, playerID) {
     try {
@@ -143,7 +150,10 @@
   }
 
   /**
-  * docstring
+  * Show the recent trial panel on the main dashboard. Shows the game the player has most recently
+  * played, their score, win/loss ratio, and a link to the game-specific dashboard.
+  * @param {FirebaseFirestore} db - Cloud Firestore database
+  * @param {String} playerID - the player's ID
   */
   async function loadRecentTrial(db, playerID) {
     try {
@@ -194,9 +204,10 @@
   }
 
   /**
-  * docstring
+  * Show the leaderboard section on the main dashboard using data from the Cloud Firestore database.
+  * @param {FirebaseFirestore} db - Cloud Firestore database
   */
-  async function loadLeaderboard(db, playerID) {
+  async function loadLeaderboard(db) {
     try {
       let doc = await db.collection("GamesInfo").doc("GlobalLeaderboard").get();
       if (doc.exists) {
@@ -225,7 +236,9 @@
   }
 
   /**
-  * docstring
+  * Show the notifications panel on the main dashboard from data in the Cloud Firestore database.
+  * @param {FirebaseFirestore} db - Cloud Firestore database
+  * @param {String} playerID - the player's ID
   */
   async function loadNotifications(db, playerID) {
     try {

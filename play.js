@@ -18,7 +18,8 @@
   }
 
   /**
-   * docstring
+   * Initialize the Firebase configuration to use the data in this Cloud Firestore database:
+   * https://console.firebase.google.com/u/0/project/survivors-7fb7c/firestore/databases/-default-/data/~2F
    */
   function initializeFirebase() {
     // Firebase configuration
@@ -39,7 +40,8 @@
   }
 
   /**
-   * docstring
+   * Find the Player ID and show all games in Cloud Firestore database.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
    */
   function updateData(db) {
     let playerID = "PLAYER #0817";
@@ -66,7 +68,9 @@
   }
 
   /**
-   * docstring
+   * Show all games in Cloud Firestore database.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} playerID - the player's ID
    */
   async function showGames(db, playerID) {
     id("back").addEventListener("click", () => {
@@ -94,22 +98,11 @@
             else {
               console.log("ERROR: No GamesInfo document for " + key);
             }
-            let recentScore = gen("h3");
-            recentScore.textContent = "Score: " + data[key].RecentScore;
-            let bestScore = gen("h3");
-            bestScore.textContent = "Best: " + data[key].TopScore;
             game.appendChild(gameName);
-            game.appendChild(recentScore);
-            game.appendChild(bestScore);
 
-            let button = gen("button");
-            button.classList.add("play-button");
-            button.setAttribute("type", "button");
-            button.textContent = "PLAY";
-            button.addEventListener("click", () => {
+            game.addEventListener("click", () => {
               window.location = gameDoc.data().Link;
             });
-            game.appendChild(button);
             games.appendChild(game);
           }
         }
