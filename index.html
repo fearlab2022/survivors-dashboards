@@ -25,6 +25,9 @@
   <script src="helpers.js"></script>
   <script defer src="main.js"></script>
 
+  <!-- Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
   <title>Survivors Main Dashboard</title>
 </head>
 <body>
@@ -54,7 +57,9 @@
         <h2>RECENT TRIAL</h2>
         <div id="recent-trial-content">
           <div id="player-avatar">
-            <img src="images/avatar.png" alt="player avatar">
+            <!-- <img src="images/avatar.png" alt="player avatar"> -->
+            <model-viewer id="3d-avatar" alt="player avatar" ar loading="eager" auto-rotate
+            rotation-per-second="30deg" shadow-intensity="1"></model-viewer>
           </div>
           <div id="recent-trial-details">
             <h2 id="recent-trial-game">FLIGHT INITIATION DISTANCE</h2>

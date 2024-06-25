@@ -210,12 +210,8 @@
     //   console.error("Error finding collections: ", error);
     // }
 
-    let elems = qsa(".player-id");
-    elems.forEach(element => {
-      element.textContent = playerID;
-    });
-
     showGame(db, playerID);
+    loadAvatar(db, playerID);
   }
 
   /**
@@ -351,6 +347,43 @@
       });
     } catch (error) {
       console.error("Error getting game information: ", error);
+    }
+  }
+
+  /**
+   * Load the player's ReadyPlayerMe avatar.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} playerID - the player's ID
+   */
+  async function loadAvatar(db, playerID) {
+    try {
+      let doc = await db.collection(playerID).doc("GamesMeta").get();
+      if (doc.exists) {
+        // let avatar = gen("img");
+        // let avatar = gen("model-viewer");
+        let avatarID = doc.data().AvatarId;
+
+        // use ReadyPlayerMe API to get 3D image of avatar
+        let baseURL = "https://models.readyplayer.me/";
+        let url = baseURL + avatarID + ".glb?quality=high";
+        // let url = baseURL + avatarID + ".png?blendShapes[mouthSmile]=0.2&camera=fullbody&quality=100&size=1024";
+        // let resp = await fetch(url);
+        // if (!resp.ok) {
+        //   throw Error("Error in ReadyPlayerMe request: " + resp.statusText);
+        // }
+        // let blob = await resp.blob();
+        // // let avatarImage = URL.createObjectURL(blob);
+        id("3d-avatar").setAttribute("src", url);
+
+        let elems = qsa(".player-id");
+        elems.forEach(element => {
+          console.log(element);
+          element.textContent = playerID;
+          console.log(element);
+        });
+      }
+    } catch (error) {
+      console.error("Error getting player avatar: ", error);
     }
   }
 

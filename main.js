@@ -70,6 +70,7 @@
     loadRecentTrial(db, playerID);
     loadLeaderboard(db, playerID);
     loadNotifications(db, playerID);
+    loadAvatar(db, playerID);
   }
 
   /**
@@ -97,7 +98,7 @@
         let data = doc.data();
 
         for (const key in data) {
-          if (data.hasOwnProperty(key) && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
+          if (data.hasOwnProperty(key) && key != "AvatarId" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
             let game = gen("div");
             game.id = key;
             game.classList.add("game");
@@ -264,6 +265,27 @@
       }
     } catch (error) {
       console.error("Error getting notifications: ", error);
+    }
+  }
+
+  /**
+   * Load the player's ReadyPlayerMe avatar.
+   * @param {FirebaseFirestore} db - Cloud Firestore database
+   * @param {String} playerID - the player's ID
+   */
+  async function loadAvatar(db, playerID) {
+    try {
+      let doc = await db.collection(playerID).doc("GamesMeta").get();
+      if (doc.exists) {
+        let avatarID = doc.data().AvatarId;
+
+        // use ReadyPlayerMe API to get 3D image of avatar
+        let baseURL = "https://models.readyplayer.me/";
+        let url = baseURL + avatarID + ".glb?quality=high";
+        id("3d-avatar").setAttribute("src", url);
+      }
+    } catch (error) {
+      console.error("Error getting player avatar: ", error);
     }
   }
 

@@ -95,6 +95,10 @@ header, #left-column, #right-column, #recent-trial-details, #leaderboard, #notif
   margin-bottom: 10px;
 }
 
+model-viewer {
+  height: 50vh;
+}
+
 #recent-trial, #games > *, #recent-trial-score, #expand, #leaderboard, #notifications, .notif {
   border-top: 2px solid #89B0CF;
   border-bottom: 2px solid #89B0CF;
@@ -114,7 +118,6 @@ header, #left-column, #right-column, #recent-trial-details, #leaderboard, #notif
 
 #player-avatar {
   background: radial-gradient(ellipse, #B5DEFF 0%, transparent 70%);
-  margin-right: 10%;
 }
 
 #flight-initiation-distance, #recent-trial {
@@ -127,11 +130,6 @@ header, #left-column, #right-column, #recent-trial-details, #leaderboard, #notif
 
 #the-predation-game {
   background-image: url('images/predbackground.png');
-}
-
-img {
-  max-height: 450px;
-  width: auto;
 }
 
 #expand {
@@ -165,6 +163,7 @@ main {
 
 #recent-trial-details {
   width: 75%;
+  margin-left: 30px;
 }
 
 #games {
@@ -375,7 +374,7 @@ table tbody tr td:first-child::before {
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1060px) {
   #left-column, #right-column {
     width: 100%;
     padding: 10px;
@@ -450,6 +449,10 @@ table tbody tr td:first-child::before {
     align-items: center;
   }
 
+  model-viewer {
+    max-height: 40vh;
+  }
+
   .game {
     width: 80vw;
   }
@@ -495,6 +498,10 @@ table tbody tr td:first-child::before {
   #top-header h3 {
     font-size: 12px;
     letter-spacing: 3px;
+  }
+
+  model-viewer {
+    max-height: 30vh;
   }
 
   #top-header {

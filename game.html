@@ -26,6 +26,9 @@
   <script src="helpers.js"></script>
   <script defer src="game.js"></script>
 
+  <!-- Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
   <title>Survivors Game Dashboard</title>
 </head>
 <body>
@@ -52,7 +55,9 @@
   <main>
     <div id="left-column">
       <div id="player-avatar">
-        <img src="images/avatar.png" alt="player avatar">
+        <model-viewer id="3d-avatar" alt="player avatar" ar loading="eager" auto-rotate disable-pan
+        shadow-intensity="1" camera-controls max-camera-orbit="auto 90deg auto"
+        min-camera-orbit="auto 90deg auto" touch-action="pan-y"></model-viewer>
         <h2 id="username" class="player-id">PLAYER #0817</h2>
       </div>
       <a href="#" id="back">&lt; BACK</a>

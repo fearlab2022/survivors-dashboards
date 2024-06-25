@@ -85,7 +85,7 @@
         let data = doc.data();
 
         for (const key in data) {
-          if (data.hasOwnProperty(key) && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
+          if (data.hasOwnProperty(key) && key != "AvatarId" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
             let game = gen("div");
             game.classList.add("game");
             game.style.backgroundImage = "url(images/" + key.toLowerCase() + "background.png)";
