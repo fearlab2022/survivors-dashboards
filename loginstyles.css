@@ -1,0 +1,319 @@
+/*
+ * Created by Lucy Gao, 2024
+ *
+ * This stylesheet is used by login.html.
+ */
+
+body {
+  background-image: url("images/login.png");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  font-style: normal;
+  color: #FFFFFF;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  text-align: center;
+}
+
+h1 {
+  font-size: 140px;
+  font-weight: 500;
+  letter-spacing: 30px;
+  margin: 0px;
+  transform: translate(0px, -80px);
+  padding: 15px;
+  background: radial-gradient(ellipse, #0069d5 23%, transparent 75%);
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#success-msg {
+  font-weight: 200;
+  letter-spacing: 3px;
+  font-size: 25px;
+}
+
+img {
+  height: 50vh;
+  background: radial-gradient(ellipse, #dddddd8c 23%, transparent 70%);
+}
+
+#frame {
+  width: 80vw;
+  height: 80vh;
+  border: none;
+}
+
+#start {
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 10px;
+  width: fit-content;
+  align-self: center;
+  border-top: 2px solid #89B0CF;
+  border-bottom: 2px solid #89B0CF;
+  border-radius: 20px;
+  padding: 15px 35px;
+  margin: 0px;
+  transform: translate(0px, -30px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+#start:hover, #submit:hover {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2491ff3b;
+}
+
+#submit {
+  font-family: 'Kodchasan', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 10px;
+  width: fit-content;
+  align-self: center;
+  border-top: 2px solid #89B0CF;
+  border-bottom: 2px solid #89B0CF;
+  border-radius: 25px;
+  padding: 15px 20px;
+  margin-top: 50px;
+}
+
+p {
+  margin-top: 0px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 25px;
+  padding: 10px;
+  background-color: transparent;
+  border-color: transparent;
+  border-top: 2px solid #89B0CF;
+  border-bottom: 2px solid #89B0CF;
+  border-radius: 20px;
+  color: #dff0ff;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.radio {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-align: center;
+}
+
+input[type=radio] {
+  margin: 0px;
+  margin-right: 15px;
+}
+
+input:focus {
+  outline: none;
+  background-color: #2491ff3b;
+}
+
+label, p {
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A4587;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #88AFCE;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+
+@media (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding: 20px;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+
+  #play-link {
+    font-size: 35px;
+    letter-spacing: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  #top-header {
+    padding: 0px;
+    justify-content: space-between;
+    width: auto;
+    text-align: center;
+  }
+
+  #player-id {
+    width: auto;
+    display: inline-block;
+  }
+
+  #back {
+    bottom: -10px;
+    left: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  #games {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 0px 10px;
+    padding-top: 20px;
+  }
+
+  nav {
+    font-size: 14px;
+  }
+
+  #play-link {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  #top-header h3 {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+
+  #top-header {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 0px;
+  }
+
+  #games {
+    height: 85%;
+  }
+}
+
+
+@media (max-width: 620px) {
+  nav {
+    flex-direction: column;
+  }
+
+  html {
+    height: auto;
+  }
+
+  #top-header h1 {
+    font-size: 35px;
+    letter-spacing: 10px;
+  }
+
+  h2, #expand {
+    letter-spacing: 5px;
+    font-size: 18px;
+  }
+
+  #recent-trial-score h1 {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  #left-column, #right-column {
+    flex-direction: column;
+  }
+
+  nav a {
+    font-size: medium;
+    padding: 10px;
+    border-radius: 0px;
+  }
+
+  #play-link {
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  #leaderboard-table, #notifications p, .scores, #expand {
+    font-size: 14px;
+  }
+
+  #recent-trial-score-split p {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  #player-avatar {
+    justify-content: center;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  img {
+    max-width: 55vw;
+  }
+}
