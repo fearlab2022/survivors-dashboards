@@ -45,6 +45,44 @@ h1 {
   font-size: 25px;
 }
 
+#avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  max-height: 80vh;
+}
+
+#avatars img {
+  max-width: 25vw;
+  height: fit-content;
+}
+
+#avatars img:hover {
+  cursor: pointer;
+  background: radial-gradient(ellipse, #d2e8ff 30%, transparent 70%);
+}
+
+#avatar-creation {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px 30px;
+}
+
+#avatar-creation h3 {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.scrollable-x {
+  overflow-x: auto;
+  padding: 0px;
+}
+
 img {
   height: 50vh;
   background: radial-gradient(ellipse, #dddddd8c 23%, transparent 70%);

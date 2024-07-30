@@ -39,15 +39,25 @@
       <input type="text" id="player-id" name="player-id" minlength="3" required><br>
       <label for="prolific-id">Please enter your Prolific ID:</label><br>
       <input type="text" id="prolific-id" name="prolific-id" minlength="3" required><br>
-      <p>Do you have a ReadyPlayerMe account?</p>
+      <!-- <p>Do you have a ReadyPlayerMe account?</p>
       <label id="yes" class="radio"><input type="radio" name="readyplayerme" value="yes" required>Yes</label><br>
-      <label id="no" class="radio"><input type="radio" name="readyplayerme" value="no">No</label><br><br>
+      <label id="no" class="radio"><input type="radio" name="readyplayerme" value="no">No</label><br><br> -->
       <input type="submit" id="submit" value="SUBMIT">
     </form>
     <div id="avatar-creation" class="hidden">
-      <h3>Create an avatar and press "Next" when you're finished customizing.</h3>
-      <h3>If you have a ReadyPlayerMe account, press the settings icon at the top left and then "Sign In" to save your avatar.</h3>
-      <iframe id="frame" allow="camera *; microphone *; clipboard-write" src="https://test-711sgr.readyplayer.me/avatar?frameApi"></iframe>
+      <h3>Pick an avatar!</h3>
+      <div id="avatars" class="scrollable-x">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88d27cefab44aa9e6590e.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88d6c9f38bede96843f9b.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88e536655e2b8244b26be.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88ecb70d05ded0cae5617.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88fdb344ac2a3f11c687a.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88f92922f759d2bfc8e76.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a89239cbd8dcebe569b751.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a89285cbd8dcebe569b8a3.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a892e2e9fe7dfbceb6db9f.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a8935ccefab44aa9e679ff.png">
+      </div>
     </div>
     <h3 id="success-msg" class="hidden">Congrats! You've just picked out your custom ReadyPlayerMe avatar!</h3>
   </main>

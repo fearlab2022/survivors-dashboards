@@ -43,28 +43,39 @@
    * Find the Player ID and show all games in Cloud Firestore database.
    * @param {FirebaseFirestore} db - Cloud Firestore database
    */
-  function updateData(db) {
-    let playerID = "PLAYER #0817";
+  async function updateData(db) {
+    let params = new URLSearchParams(window.location.search);
+    let uid = params.get("uid");
 
-    // NOTE: need admin access to list top-level collections
-
-    // try {
-    //   let collections = await db.listCollections();
-    //   collections.forEach(collection => {
-    //     if (collection.id != "GamesInfo") {
-    //       playerID = collection.id;
-    //     }
-    //   });
-    // } catch (error) {
-    //   console.error("Error finding collections: ", error);
-    // }
-
-    let elems = qsa(".player-id");
-    elems.forEach(element => {
-      element.textContent = playerID;
+    id("back").addEventListener("click", () => {
+      let params = new URLSearchParams();
+      params.set('uid', uid);
+      window.location = "index.html?" + params.toString();
     });
 
-    showGames(db, playerID);
+    try {
+      let doc = await db.collection("Users").doc(uid).get();
+      if (doc.exists) {
+        let data = doc.data();
+        let playerID = "PLAYER #" + data.playerID.toUpperCase();
+
+        let elems = qsa(".player-id");
+        elems.forEach(element => {
+          element.textContent = playerID;
+        });
+
+        // update links
+        let curr = new URLSearchParams(window.location.search);
+        let uid = curr.get("uid");
+        let params = new URLSearchParams();
+        params.set('uid', uid)
+        id("home-page-link").href = "index.html?" + params.toString();
+
+        showGames(db, playerID);
+      }
+    } catch (error) {
+      console.error("Error getting player ID: ", error);
+    }
   }
 
   /**
@@ -73,10 +84,6 @@
    * @param {String} playerID - the player's ID
    */
   async function showGames(db, playerID) {
-    id("back").addEventListener("click", () => {
-      window.location = "index.html";
-    });
-
     try {
       let doc = await db.collection(playerID).doc("GamesMeta").get();
       if (doc.exists) {
@@ -85,7 +92,7 @@
         let data = doc.data();
 
         for (const key in data) {
-          if (data.hasOwnProperty(key) && key != "AvatarId" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
+          if (data.hasOwnProperty(key) && key != "avatarURL" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
             let game = gen("div");
             game.classList.add("game");
             game.style.backgroundImage = "url(images/" + key.toLowerCase() + "background.png)";

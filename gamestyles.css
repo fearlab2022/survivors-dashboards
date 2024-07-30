@@ -4,7 +4,7 @@
  * This stylesheet is used by game.html (the game-specific dashboard).
  */
 
- body {
+body {
   background-image: url("images/MOSgamedash.png");
   background-size: cover;
   background-position-x: center;
@@ -34,6 +34,12 @@ nav, nav a, #play-link:hover, h3 {
 
 nav {
   font-family: 'Nunito', sans-serif;
+}
+
+img {
+  max-height: 70vh;
+  width: auto;
+  padding-left: 10%;
 }
 
 .hidden, #dropdown-content {

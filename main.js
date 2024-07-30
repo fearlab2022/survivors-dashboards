@@ -48,29 +48,33 @@
    * @param {FirebaseFirestore} db - Cloud Firestore database
    */
   async function updateData(db) {
-    let playerID = "PLAYER #0817";
+    let params = new URLSearchParams(window.location.search);
+    let uid = params.get("uid");
 
-    // NOTE: need admin access to list top-level collections
+    try {
+      let doc = await db.collection("Users").doc(uid).get();
+      if (doc.exists) {
+        let data = doc.data();
+        let playerID = "PLAYER #" + data.playerID.toUpperCase();
+        id("player-id").textContent = playerID;
 
-    // try {
-    //   let collections = await db.listCollections();
-    //   collections.forEach(collection => {
-    //     if (collection.id != "GamesInfo") {
-    //       playerID = collection.id;
-    //     }
-    //   });
-    // } catch (error) {
-    //   console.error("Error finding collections: ", error);
-    // }
+        // update links
+        let curr = new URLSearchParams(window.location.search);
+        let uid = curr.get("uid");
+        let params = new URLSearchParams();
+        params.set('uid', uid)
+        id("play-link").href = "play.html?" + params.toString();
 
-    id("player-id").textContent = playerID;
-
-    // Load games, recent trial, leaderboard, notifications
-    loadGames(db, playerID);
-    loadRecentTrial(db, playerID);
-    loadLeaderboard(db, playerID);
-    loadNotifications(db, playerID);
-    loadAvatar(db, playerID);
+        // Load games, recent trial, leaderboard, notifications
+        loadGames(db, playerID);
+        loadRecentTrial(db, playerID);
+        loadLeaderboard(db, playerID);
+        loadNotifications(db, playerID);
+        loadAvatar(db, playerID);
+      }
+    } catch (error) {
+      console.error("Error getting player ID: ", error);
+    }
   }
 
   /**
@@ -78,8 +82,11 @@
    * @param {String} shorthand - shortened name of the game (ex: FID)
    */
   function showGamePage(shorthand) {
+    let curr = new URLSearchParams(window.location.search);
+    let uid = curr.get("uid");
     let params = new URLSearchParams();
     params.set('game', shorthand);
+    params.set('uid', uid)
     window.location = "game.html?" + params.toString();
   }
 
@@ -98,7 +105,7 @@
         let data = doc.data();
 
         for (const key in data) {
-          if (data.hasOwnProperty(key) && key != "AvatarId" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
+          if (data.hasOwnProperty(key) && key != "avatarURL" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
             let game = gen("div");
             game.id = key;
             game.classList.add("game");
@@ -277,12 +284,19 @@
     try {
       let doc = await db.collection(playerID).doc("GamesMeta").get();
       if (doc.exists) {
-        let avatarID = doc.data().AvatarId;
+        let avatarURL = doc.data().avatarURL;
 
-        // use ReadyPlayerMe API to get 3D image of avatar
-        let baseURL = "https://models.readyplayer.me/";
-        let url = baseURL + avatarID + ".glb?quality=high";
-        id("3d-avatar").setAttribute("src", url);
+        // use ReadyPlayerMe API to get 2D image of avatar
+        // trim off the ".glb" file type
+        let baseURL = avatarURL.substring(0, avatarURL.indexOf(".glb"));
+        let url = baseURL + ".png?blendShapes[mouthSmile]=0.2&camera=fullbody&quality=100&size=1024";
+        let resp = await fetch(url);
+        if (!resp.ok) {
+          throw Error("Error in ReadyPlayerMe request: " + resp.statusText);
+        }
+        let blob = await resp.blob();
+        let avatarImage = URL.createObjectURL(blob);
+        id("2d-avatar").setAttribute("src", avatarImage);
       }
     } catch (error) {
       console.error("Error getting player avatar: ", error);

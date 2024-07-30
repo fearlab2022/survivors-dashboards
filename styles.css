@@ -118,6 +118,7 @@ model-viewer {
 
 #player-avatar {
   background: radial-gradient(ellipse, #B5DEFF 0%, transparent 70%);
+  padding-left: 5%;
 }
 
 #flight-initiation-distance, #recent-trial {
@@ -351,6 +352,11 @@ table tbody tr td:first-child::before {
 
 ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
   border-radius: 10px;
+}
+
+img {
+  max-height: 470px;
+  width: auto;
 }
 
 /* Media Queries for Responsiveness */
