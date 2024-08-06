@@ -40,6 +40,11 @@
     return db;
   }
 
+  /**
+   * For chart creation. Take the string, split it by uppercase letters, then convert to uppercase and join with spaces.
+   * e.g. ExampleText -> EXAMPLE TEXT
+   * @param {String} text - the text to be modified
+   */
   function splitAndUpperCase(text) {
     if (text == "RTTime") {
       return "REACTION TIME";
@@ -49,6 +54,11 @@
     }
   }
 
+  /**
+   * Create the radar chart with given data.
+   * @param {Object} data - session data
+   * @param {Number Array} numberData - all the numeric session data
+   */
   function createRadarChart(data, numberData) {
     id("dropdown-main").innerHTML = "";
     let canvas = gen("canvas");
@@ -110,6 +120,11 @@
     id("dropdown-text").textContent = "RADAR CHART";
   }
 
+  /**
+   * Populate the game features array dropdown.
+   * @param {Object} arr - trial data
+   * @param {String} key - the game feature currently being populated
+   */
   function arrayDropdown(arr, key) {
     id("dropdown-main").innerHTML = "";
     let canvas = gen("canvas");
