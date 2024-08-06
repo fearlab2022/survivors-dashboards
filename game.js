@@ -212,7 +212,7 @@
         id("back").addEventListener("click", () => {
           let params = new URLSearchParams();
           params.set('uid', uid);
-          window.location = "index.html?" + params.toString();
+          window.location = "main.html?" + params.toString();
         });
 
         // update links
@@ -221,7 +221,7 @@
         let params = new URLSearchParams();
         params.set('uid', uid)
         id("play-link").href = "play.html?" + params.toString();
-        id("home-page-link").href = "index.html?" + params.toString();
+        id("home-page-link").href = "main.html?" + params.toString();
 
         showGame(db, playerID);
         loadAvatar(db, playerID);

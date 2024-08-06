@@ -1,7 +1,7 @@
 /**
  * Created by Lucy Gao, 2024
  *
- * This is the file that provides all functionality for index.html.
+ * This is the file that provides all functionality for main.html.
  * It loads data from a Google Firebase database and displays it for the dashboard.
  *
  * Firebase Database: https://console.firebase.google.com/u/0/project/survivors-7fb7c/firestore/databases/-default-/data/~2F

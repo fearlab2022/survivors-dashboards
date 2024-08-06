@@ -2,10 +2,7 @@
 <!--
   Created by Lucy Gao, 2024
 
-  This is the main dashboard page for the Survivors project, geared towards showing a player how
-  they are performing and potential areas for improvement. The page contains links to other pages
-  such as game-specific dashboards for Flight Initiation Distance, Margin of Safety, and the
-  Predation Game, and so on.
+  This is a page that allows the user to log in to the Survivors dashboards.
 -->
 <html lang="en">
 <head>
@@ -15,204 +12,51 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="loginstyles.css">
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
+  <!-- ReadyPlayerMe Avatar Creation -->
+  <script src="https://cdn.readyplayer.me/avatar-sdk/latest/readyplayerme.min.js"></script>
+
   <script src="helpers.js"></script>
-  <script defer src="main.js"></script>
+  <script defer src="login.js"></script>
 
-  <!-- Model Viewer -->
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-
-  <title>Survivors Main Dashboard</title>
+  <title>Survivors Log In</title>
 </head>
 <body>
-  <header>
-    <div id="top-header">
-      <div id="survivor-icon">
-        <h3>SURVIVORS</h3>
-      </div>
-      <h1>DASHBOARD</h1>
-      <h3 id="player-id">PLAYER #0817</h3>
-    </div>
-    <div id="menu-bar">
-      <nav>
-        <!-- NOTE: maybe change what is in the menu bar-->
-        <a href="#" id="home-page-link">HOME</a>
-        <a href="#" id="inventory-page-link">INVENTORY</a>
-        <a href="#" id="store-page-link">STORE</a>
-        <a href="#" id="inbox-page-link">GAMES</a>
-        <a href="#" id="play-link">PLAY</a>
-      </nav>
-    </div>
-  </header>
   <main>
-    <div id="left-column">
-      <div id="recent-trial">
-        <h2>RECENT TRIAL</h2>
-        <div id="recent-trial-content">
-          <div id="player-avatar">
-            <img id="2d-avatar" src="images/avatar.png" alt="player avatar">
-            <!-- <model-viewer id="3d-avatar" alt="player avatar" ar loading="eager" auto-rotate
-            rotation-per-second="30deg" shadow-intensity="1"></model-viewer> -->
-          </div>
-          <div id="recent-trial-details">
-            <h2 id="recent-trial-game">FLIGHT INITIATION DISTANCE</h2>
-            <!-- NOTE: maybe I should put outcome in here somewhere -->
-            <div id="recent-trial-score">
-              <h3>SCORE</h3>
-              <h1>168</h1>
-            </div>
-            <div id="recent-trial-score-split">
-              <p id="recent-trial-win">23 win</p>
-              <p id="recent-trial-loss">5 loss</p>
-            </div>
-            <a href="#" id="expand">EXPAND &gt;</a>
-          </div>
-        </div>
-      </div>
-      <div id="games" class="scrollable-x">
-        <div id="flight-initiation-distance" class="game">
-          <div class="game-details">
-            <h2 class="game-name">FLIGHT INITIATION DISTANCE</h2>
-            <div class="scores">
-              <p class="recent-score">Score: 45</p>
-              <p class="best-score">Best: 176</p>
-            </div>
-          </div>
-          <button id="flight-initiation-distance-button" type="button">?</button>
-        </div>
-        <div id="margin-of-safety" class="game">
-          <div class="game-details">
-            <h2 class="game-name">MARGIN OF SAFETY</h2>
-            <div class="scores">
-              <p class="recent-score">Score: 168</p>
-              <p class="best-score">Best: 168</p>
-            </div>
-          </div>
-          <button type="button">?</button>
-        </div>
-        <div id="the-predation-game" class="game">
-          <div class="game-details">
-            <h2 class="game-name">THE PREDATION GAME</h2>
-            <div class="scores">
-              <p class="recent-score">Score: 0</p>
-              <p class="best-score">Best: 35</p>
-            </div>
-          </div>
-          <button type="button">?</button>
-        </div>
-        <!-- USED TO TEST SCROLLBAR AND GAME WIDTHS: -->
-        <!-- <div id="thee-predation-game" class="game">
-          <div class="game-details">
-            <h2 class="game-name">THE PREDATION GAME</h2>
-            <div class="scores">
-              <p class="recent-score">Score: 0</p>
-              <p class="best-score">Best: 35</p>
-            </div>
-          </div>
-          <button type="button">?</button>
-        </div>
-        <div id="thdee-predation-game" class="game">
-          <div class="game-details">
-            <h2 class="game-name">THE PREDATION GAME</h2>
-            <div class="scores">
-              <p class="recent-score">Score: 0</p>
-              <p class="best-score">Best: 35</p>
-            </div>
-          </div>
-          <button type="button">?</button>
-        </div> -->
+    <div id="intro">
+      <img src="images/avatars.png">
+      <h1>SURVIVORS</h1>
+      <h3 id="start">START</h3>
+    </div>
+    <form id="info-form" class="hidden">
+      <label for="player-id">Please create a Player ID:</label><br>
+      <input type="text" id="player-id" name="player-id" minlength="3" required><br>
+      <label for="prolific-id">Please enter your Prolific ID:</label><br>
+      <input type="text" id="prolific-id" name="prolific-id" minlength="3" required><br>
+      <input type="submit" id="submit" value="SUBMIT">
+    </form>
+    <div id="avatar-creation" class="hidden">
+      <h3>Pick an avatar!</h3>
+      <div id="avatars" class="scrollable-x">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88d27cefab44aa9e6590e.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88d6c9f38bede96843f9b.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88e536655e2b8244b26be.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88ecb70d05ded0cae5617.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88fdb344ac2a3f11c687a.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a88f92922f759d2bfc8e76.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a89239cbd8dcebe569b751.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a89285cbd8dcebe569b8a3.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a892e2e9fe7dfbceb6db9f.png">
+        <img src="https://api.readyplayer.me/v1/avatars/66a8935ccefab44aa9e679ff.png">
       </div>
     </div>
-    <div id="right-column">
-      <div id="leaderboard">
-        <h2>LEADERBOARD</h2>
-        <div id="leaderboard-table" class="scrollable-y">
-          <table>
-            <tr>
-              <td>PLAYER #0123</td>
-              <td>198</td>
-            </tr>
-            <tr>
-              <td>PLAYER #1111</td>
-              <td>197</td>
-            </tr>
-            <tr>
-              <td>PLAYER #2112</td>
-              <td>196</td>
-            </tr>
-            <tr>
-              <td>PLAYER #0076</td>
-              <td>191</td>
-            </tr>
-            <!-- SCROLLBAR TESTING -->
-            <!-- <tr>
-              <td>PLAYER #2112</td>
-              <td>196</td>
-            </tr>
-            <tr>
-              <td>PLAYER #0076</td>
-              <td>191</td>
-            </tr>
-            <tr>
-              <td>PLAYER #2112</td>
-              <td>196</td>
-            </tr>
-            <tr>
-              <td>PLAYER #0076</td>
-              <td>191</td>
-            </tr> -->
-            <!-- NOTE: something frozen row for player score? -->
-            <tr id="player-score">
-              <td>PLAYER #0817</td>
-              <td>168</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div id="notifications">
-        <h2>NOTIFICATIONS</h2>
-        <div id="notif-list" class="scrollable-y">
-          <div class="notif">
-            <img src="images/notification.png" alt="notification bell">
-            <p>New high score achieved in Flight Initiation Distance!</p>
-          </div>
-          <div class="notif">
-            <img src="images/notification.png" alt="notification bell">
-            <p>PLAYER #0211 sent you a new message.</p>
-          </div>
-          <div class="notif">
-            <img src="images/notification.png" alt="notification bell">
-            <p>A new level has been released for The Predation Game.</p>
-          </div>
-          <div class="notif">
-            <img src="images/notification.png" alt="notification bell">
-            <p>PLAYER #0818 sent you a friend request!</p>
-          </div>
-          <!-- scrollbar testing -->
-          <!-- <div class="notif">
-            <img src="images/notification.png">
-            <p>A new level has been released for The Predation Game.</p>
-          </div>
-          <div class="notif">
-            <img src="images/notification.png">
-            <p>PLAYER #0818 sent you a friend request!</p>
-          </div><div class="notif">
-            <img src="images/notification.png">
-            <p>A new level has been released for The Predation Game.</p>
-          </div>
-          <div class="notif">
-            <img src="images/notification.png">
-            <p>PLAYER #0818 sent you a friend request!</p>
-          </div>-->
-        </div>
-      </div>
-    </div>
+    <h3 id="success-msg" class="hidden">Congrats! You've just picked out your custom ReadyPlayerMe avatar!</h3>
   </main>
   <footer></footer>
 </body>

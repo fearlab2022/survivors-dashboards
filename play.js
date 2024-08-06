@@ -50,7 +50,7 @@
     id("back").addEventListener("click", () => {
       let params = new URLSearchParams();
       params.set('uid', uid);
-      window.location = "index.html?" + params.toString();
+      window.location = "main.html?" + params.toString();
     });
 
     try {
@@ -69,7 +69,7 @@
         let uid = curr.get("uid");
         let params = new URLSearchParams();
         params.set('uid', uid)
-        id("home-page-link").href = "index.html?" + params.toString();
+        id("home-page-link").href = "main.html?" + params.toString();
 
         showGames(db, playerID);
       }
