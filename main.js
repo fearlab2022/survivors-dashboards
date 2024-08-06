@@ -55,7 +55,7 @@
       let doc = await db.collection("Users").doc(uid).get();
       if (doc.exists) {
         let data = doc.data();
-        let playerID = "PLAYER #" + data.playerID.toUpperCase();
+        let playerID = data.playerID;
         id("player-id").textContent = playerID;
 
         // update links
@@ -287,7 +287,7 @@
         let avatarURL = doc.data().avatarURL;
 
         // use ReadyPlayerMe API to get 2D image of avatar
-        // trim off the ".glb" file extension
+        // trim off the ".glb" file type
         let baseURL = avatarURL.substring(0, avatarURL.indexOf(".glb"));
         let url = baseURL + ".png?blendShapes[mouthSmile]=0.2&camera=fullbody&quality=100&size=1024";
         let resp = await fetch(url);

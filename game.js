@@ -202,7 +202,7 @@
       let doc = await db.collection("Users").doc(uid).get();
       if (doc.exists) {
         let data = doc.data();
-        let playerID = "PLAYER #" + data.playerID.toUpperCase();
+        let playerID = data.playerID;
 
         let elems = qsa(".player-id");
         elems.forEach(element => {

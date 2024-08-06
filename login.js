@@ -98,7 +98,7 @@
       playerID: id("player-id").value,
       prolificID: id("prolific-id").value
     }).then(function() {
-      let playerID = "PLAYER #" + id("player-id").value.toUpperCase();
+      let playerID = id("player-id").value;
 
       // reset form fields
       id("player-id").value = "";

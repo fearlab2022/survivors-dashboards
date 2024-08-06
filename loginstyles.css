@@ -208,150 +208,73 @@ label, p {
 }
 
 
-@media (max-width: 1000px) {
-  main {
-    flex-direction: column;
-  }
-
-  nav a {
-    margin: 0px 10px;
-    padding: 20px;
-  }
-
-  nav {
-    font-size: 14px;
-  }
-
-  #play-link {
-    font-size: 35px;
-    letter-spacing: 8px;
+@media (max-width: 1300px) {
+  img {
+    max-width: 80vw;
+    height: fit-content;
   }
 
   h1 {
-    font-size: 20px;
-    letter-spacing: 10px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  #top-header {
-    padding: 0px;
-    justify-content: space-between;
-    width: auto;
-    text-align: center;
-  }
-
-  #player-id {
-    width: auto;
-    display: inline-block;
-  }
-
-  #back {
-    bottom: -10px;
-    left: 0px;
+    font-size: 100px;
   }
 }
 
-@media (max-width: 800px) {
-  #games {
-    flex-direction: column;
-  }
-
-  nav a {
-    margin: 0px 10px;
-    padding-top: 20px;
-  }
-
-  nav {
-    font-size: 14px;
-  }
-
-  #play-link {
-    font-size: 20px;
-    letter-spacing: 3px;
-  }
-
-  #top-header h3 {
-    font-size: 16px;
-    letter-spacing: 3px;
-  }
-
-  #top-header {
-    align-items: center;
-    flex-direction: column;
+@media (max-width: 900px) {
+  #avatars img {
+    max-width: 35vw;
   }
 
   h1 {
-    font-size: 25px;
-    letter-spacing: 5px;
-    margin: 0px;
-  }
-
-  #games {
-    height: 85%;
+    font-size: 80px;
   }
 }
 
-
-@media (max-width: 620px) {
-  nav {
-    flex-direction: column;
+@media (max-width: 750px) {
+  #avatars img {
+    max-width: 40vw;
   }
 
-  html {
-    height: auto;
+  h1 {
+    font-size: 60px;
+    transform: translate(0px, -65px);
+    letter-spacing: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-size: 40px;
+    transform: translate(0px, -50px);
+  }
+}
+
+@media (max-width: 550px) {
+  #avatars img {
+    max-width: 80vw;
   }
 
-  #top-header h1 {
-    font-size: 35px;
-    letter-spacing: 10px;
+  h1 {
+    font-size: 30px;
+    transform: translate(0px, -45px);
   }
 
-  h2, #expand {
+  #start {
+    font-size: 15px;
     letter-spacing: 5px;
+  }
+}
+
+@media (max-width: 450px) {
+  label {
     font-size: 18px;
   }
 
-  #recent-trial-score h1 {
-    font-size: 40px;
-    letter-spacing: 10px;
+  #submit {
+    font-size: 16px;
   }
 
-  #left-column, #right-column {
-    flex-direction: column;
-  }
-
-  nav a {
-    font-size: medium;
-    padding: 10px;
-    border-radius: 0px;
-  }
-
-  #play-link {
-    border-radius: 0px 0px 30px 30px;
-  }
-
-  #leaderboard-table, #notifications p, .scores, #expand {
-    font-size: 14px;
-  }
-
-  #recent-trial-score-split p {
-    font-size: 12px;
-    letter-spacing: 3px;
-  }
-
-  #player-avatar {
-    justify-content: center;
-  }
-
-  main {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  img {
-    max-width: 55vw;
+  h1 {
+    font-size: 20px;
+    transform: translate(0px, -40px);
   }
 }
