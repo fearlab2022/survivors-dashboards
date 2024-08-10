@@ -96,6 +96,11 @@
             let game = gen("div");
             game.classList.add("game");
             game.style.backgroundImage = "url(images/" + key.toLowerCase() + "background.png)";
+
+            let gamePred = gen("img");
+            gamePred.setAttribute("src", "images/" + key.toLowerCase() + "predator.png");
+            game.appendChild(gamePred);
+
             let gameName = gen("h1");
             let gameDoc = await db.collection("GamesInfo").doc(key).get();
             if (gameDoc.exists) {
@@ -106,6 +111,12 @@
               console.log("ERROR: No GamesInfo document for " + key);
             }
             game.appendChild(gameName);
+
+            let button = gen("a");
+            button.textContent = "PLAY";
+            button.setAttribute("href", gameDoc.data().Link);
+            button.classList.add("gamebtn");
+            game.appendChild(button);
 
             game.addEventListener("click", () => {
               window.location = gameDoc.data().Link;

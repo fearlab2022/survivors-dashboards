@@ -43,7 +43,7 @@ nav {
 }
 
 main {
-  height: 60vh;
+  height: fit-content;
   width: auto;
   margin-top: 10px;
 }
@@ -110,10 +110,13 @@ header, #top-header, nav, main, #game-scores, #games {
  flex-direction: row;
 }
 
-#back, .game {
+#back, .game, .gamebtn {
   border-top: 2px solid #89B0CF;
   border-bottom: 2px solid #89B0CF;
   border-radius: 30px;
+}
+
+#back, .game {
   margin: 10px;
 }
 
@@ -123,17 +126,23 @@ header, #top-header, nav, main, #game-scores, #games {
   font-weight: 600;
 }
 
-.game {
-  flex: 1;
+img {
+  max-width: 20vw;
+  padding: 20px 0px;
+  justify-self: center;
 }
 
-.game, .game button {
+.game {
+  flex: 1;
+  margin: 10px 20px;
+  display: grid;
   padding: 30px;
 }
 
 .game h1 {
   letter-spacing: 7px;
   margin: 0px;
+  text-align: center;
 }
 
 .game h3 {
@@ -141,19 +150,7 @@ header, #top-header, nav, main, #game-scores, #games {
   letter-spacing: 3px;
 }
 
-.game button {
-  bottom: 40px;
-  left: 20px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgba(168, 216, 255, 0.795);
-}
-
-.game button {
-  font-size: x-large;
-}
-
-.game button, #back, body {
+#back, body {
   font-family: 'Kodchasan', sans-serif;
 }
 
@@ -175,24 +172,42 @@ header, #top-header, nav, main, #game-scores, #games {
   background-image: url('images/predbackground.png');
 }
 
-#back {
+#back, .gamebtn {
   width: fit-content;
   padding: 15px 30px;
   color: #E2F2FF;
   background-color: #2A4587;
-  margin-right: auto;
-  margin-top: 20px;
   letter-spacing: 10px;
   font-weight: 500;
 }
 
+#back {
+  margin-right: auto;
+  margin-top: 20px;
+}
+
 .game {
   cursor: pointer;
+  align-items: center;
 }
 
 .scrollable-x {
   overflow-x: auto;
   padding: 0px;
+}
+
+.gamebtn {
+  visibility: hidden;
+  padding: 10px 50px;
+  font-size: x-large;
+  text-decoration: none;
+  align-self: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.game:hover > .gamebtn, .gamebtn:hover {
+  visibility: visible;
 }
 
 /* scrollbar */
@@ -261,6 +276,10 @@ header, #top-header, nav, main, #game-scores, #games {
 }
 
 @media (max-width: 800px) {
+  html {
+    height: auto;
+  }
+
   #games {
     flex-direction: column;
   }
@@ -297,6 +316,10 @@ header, #top-header, nav, main, #game-scores, #games {
 
   #games {
     height: 85%;
+  }
+
+  img {
+    max-width: 35vw;
   }
 }
 
