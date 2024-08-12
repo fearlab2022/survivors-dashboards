@@ -128,7 +128,7 @@ header, #top-header, nav, main, #game-scores, #games {
 
 img {
   max-width: 20vw;
-  padding: 20px 0px;
+  padding: 10px 0px;
   justify-self: center;
 }
 
@@ -145,9 +145,8 @@ img {
   text-align: center;
 }
 
-.game h3 {
-  font-style: italic;
-  letter-spacing: 3px;
+.game h1, .gamebtn {
+  font-size: 26px;
 }
 
 #back, body {
@@ -157,7 +156,7 @@ img {
 #games {
   justify-content: space-evenly;
   width: 100%;
-  height: 64vh;
+  min-height: 64vh;
 }
 
 #flight-initiation-distance {
