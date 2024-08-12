@@ -48,7 +48,7 @@ main {
   margin-top: 10px;
 }
 
-main, nav a {
+nav a {
   padding: 20px;
 }
 
@@ -157,7 +157,7 @@ img {
 #games {
   justify-content: space-evenly;
   width: 100%;
-  height: 80%;
+  height: 64vh;
 }
 
 #flight-initiation-distance {
@@ -184,6 +184,7 @@ img {
 #back {
   margin-right: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .game {
