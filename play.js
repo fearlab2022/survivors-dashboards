@@ -97,6 +97,7 @@
             game.classList.add("game");
             game.style.backgroundImage = "url(images/" + key.toLowerCase() + "background.png)";
 
+            // add predator picture
             let gamePred = gen("img");
             gamePred.setAttribute("src", "images/" + key.toLowerCase() + "predator.png");
             game.appendChild(gamePred);
