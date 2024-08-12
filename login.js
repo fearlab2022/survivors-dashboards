@@ -122,28 +122,18 @@
           user.update({
             avatarURL: url
           }).then(function() {
-            var playerIDRef = db.collection(playerID).doc("GamesMeta");
-            playerIDRef.update({
-              avatarURL: url
-            }).then(function() {
-              id('avatar-creation').classList.add("hidden");
-              id('success-msg').classList.remove("hidden");
-              setTimeout(() => {
-                let params = new URLSearchParams();
-                params.set('uid', uid);
-                window.location = "play.html?" + params.toString();
-              }, 3000);
-            }).catch(function(error) {
-              console.error('Error storing ReadyPlayerMe avatar URL into GamesMeta:', error);
-            });
-
-
+            id('avatar-creation').classList.add("hidden");
+            id('success-msg').classList.remove("hidden");
+            setTimeout(() => {
+              let params = new URLSearchParams();
+              params.set('uid', uid);
+              window.location = "play.html?" + params.toString();
+            }, 3000);
           }).catch(function(error) {
             console.error('Error storing ReadyPlayerMe avatar URL:', error);
           });
         });
       });
-
     }).catch(function(error) {
       console.error('Error storing user data:', error);
     });

@@ -71,7 +71,7 @@
         params.set('uid', uid)
         id("home-page-link").href = "main.html?" + params.toString();
 
-        showGames(db, playerID);
+        showGames(db);
       }
     } catch (error) {
       console.error("Error getting player ID: ", error);
@@ -81,51 +81,46 @@
   /**
    * Show all games in Cloud Firestore database.
    * @param {FirebaseFirestore} db - Cloud Firestore database
-   * @param {String} playerID - the player's ID
    */
-  async function showGames(db, playerID) {
-    try {
-      let doc = await db.collection(playerID).doc("GamesMeta").get();
-      if (doc.exists) {
-        let games = id("games");
-        games.innerHTML = "";
-        let data = doc.data();
+  async function showGames(db) {
+    let games = id("games");
+    games.innerHTML = "";
 
-        for (const key in data) {
-          if (data.hasOwnProperty(key) && key != "avatarURL" && key != "RecentGame" && key != "RecentScore" && key != "TopScore") {
+    try {
+      let docsRef = await db.collection("GamesInfo");
+      docsRef.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          if (doc.id != "GlobalLeaderboard") {
+            let data = doc.data();
             let game = gen("div");
             game.classList.add("game");
-            game.style.backgroundImage = "url(images/" + key.toLowerCase() + "background.png)";
+            game.style.backgroundImage = "url(images/" + doc.id.toLowerCase() + "background.png)";
 
             // add predator picture
             let gamePred = gen("img");
-            gamePred.setAttribute("src", "images/" + key.toLowerCase() + "predator.png");
+            gamePred.setAttribute("src", "images/" + doc.id.toLowerCase() + "predator.png");
             game.appendChild(gamePred);
 
             let gameName = gen("h1");
-            let gameDoc = await db.collection("GamesInfo").doc(key).get();
-            if (gameDoc.exists) {
-              gameName.textContent = gameDoc.data().Name.toUpperCase();
-              game.id = gameDoc.data().Name.split(' ').join('-').toLowerCase();
-            }
-            else {
-              console.log("ERROR: No GamesInfo document for " + key);
-            }
+            gameName.textContent = data.Name.toUpperCase();
+            game.id = data.Name.split(' ').join('-').toLowerCase();
             game.appendChild(gameName);
 
             let button = gen("a");
             button.textContent = "PLAY";
-            button.setAttribute("href", gameDoc.data().Link);
+            button.setAttribute("href", data.Link);
             button.classList.add("gamebtn");
             game.appendChild(button);
 
             game.addEventListener("click", () => {
-              window.location = gameDoc.data().Link;
+              window.location = data.Link;
             });
             games.appendChild(game);
           }
-        }
-      }
+        });
+      }).catch(function(error) {
+        console.error("Error getting game documents: ", error);
+      });
     } catch (error) {
       console.error("Error getting games: ", error);
     }
